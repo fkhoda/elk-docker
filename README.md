@@ -1,1 +1,1 @@
-# elk-docker
+# Docker images for ELK
