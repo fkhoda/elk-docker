@@ -1,4 +1,4 @@
-FROM docker.elastic.co/logstash/logstash:5.4.0
+FROM docker.elastic.co/logstash/logstash:5.5.1
 
 COPY logstash.yml /usr/share/logstash/config/logstash.yml
 
