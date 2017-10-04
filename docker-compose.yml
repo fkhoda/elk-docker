@@ -1,0 +1,26 @@
+version: '3'
+services:
+  elasticsearch:
+    image: fkhoda/elasticsearch:5.5.1
+    container_name: elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - ES_JAVA_OPTS=-Xmx256m -Xms256m
+  kibana:
+    image: fkhoda/kibana:5.5.1
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+  logstash:
+    image: fkhoda/logstash:5.5.1
+    container_name: logstash
+    ports:
+      - "5000:5000"
+    environment:
+      - LS_JAVA_OPTS=-Xmx256m -Xms256m
+    depends_on:
+      - elasticsearch
